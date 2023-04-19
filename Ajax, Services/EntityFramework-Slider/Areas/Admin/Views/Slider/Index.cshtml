@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Slider>
+
+
+@{
+    ViewData["Title"] = "Slider";
+}
+
+<div class="container my-5">
+    <div class="card-body">
+        <p class="card-title">Slider</p>
+        <div class="table-responsive">
+            <table id="recent-purchases-listing" class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var slider in Model)
+                    {
+                       <tr>
+                           <td> 
+                                <img src="~/img/@slider.Image" alt="image"/>
+                           </td>
+                           <td>
+                               @if(slider.SoftDelete){
+                                    <div class="deActive-status"></div>
+                                }
+                                else
+                                {
+                                    <div class="active-status"></div>
+                                }
+                           
+                               
+                           </td>
+                           <td>
+                                <button class="btn btn-outline-info">Info</button>
+                                <button class="btn btn-outline-primary">Edit</button>
+                                <button class="btn btn-outline-danger">Delete</button>
+                           </td>
+                       </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
